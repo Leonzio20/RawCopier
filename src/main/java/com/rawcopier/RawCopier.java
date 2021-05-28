@@ -22,14 +22,10 @@ import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
-import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
-import java.util.logging.FileHandler;
-import java.util.logging.Formatter;
 import java.util.logging.Level;
-import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -59,36 +55,10 @@ public class RawCopier implements Initializable
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle)
   {
-    initializeLogger();
+    LoggerConfigurator.configure(LOGGER);
 
     fillSource();
     fillTarget();
-  }
-
-  private void initializeLogger()
-  {
-    try
-    {
-      File logs = new File(System.getProperty("user.home") + "/.RawCopier/logs/");
-      if (logs.mkdirs() || logs.exists())
-      {
-        FileHandler handler = new FileHandler(logs.getAbsolutePath() + "/" + DATE_FORMAT.format(new Date()) + ".log");
-        handler.setFormatter(new Formatter()
-        {
-          @Override
-          public String format(LogRecord record)
-          {
-            String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date(record.getMillis()));
-            String format = "%s - %s#%s : %s\n";
-            return String.format(format, date, record.getSourceClassName(), record.getSourceMethodName(), record.getMessage());
-          }
-        });
-        LOGGER.addHandler(handler);
-      }
-    } catch (IOException e)
-    {
-      e.printStackTrace();
-    }
   }
 
   private void fillSource()
