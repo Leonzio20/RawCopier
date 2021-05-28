@@ -7,9 +7,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.Objects;
+import java.util.prefs.Preferences;
 
 public class Main extends Application
 {
+  public static final Preferences PREF = Preferences.userRoot().node(Main.class.getName());
 
   @Override
   public void start(Stage primaryStage) throws Exception

@@ -12,6 +12,7 @@
     <maven.compiler.source>16</maven.compiler.source>
     <maven.compiler.target>16</maven.compiler.target>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <lombok.version>1.18.20</lombok.version>
   </properties>
 
   <dependencies>
@@ -35,7 +36,6 @@
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
-          <fork>true</fork>
         </configuration>
       </plugin>
     </plugins>
