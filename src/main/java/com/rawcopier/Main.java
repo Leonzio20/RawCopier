@@ -9,9 +9,17 @@ import javafx.stage.Stage;
 import java.util.Objects;
 import java.util.prefs.Preferences;
 
+/**
+ * @author Leonzio20
+ */
 public class Main extends Application
 {
   public static final Preferences PREF = Preferences.userRoot().node(Main.class.getName());
+
+  public static void main(String[] args)
+  {
+    launch(args);
+  }
 
   @Override
   public void start(Stage primaryStage) throws Exception
@@ -21,10 +29,5 @@ public class Main extends Application
     primaryStage.setScene(new Scene(root, 400, 300));
     primaryStage.setResizable(false);
     primaryStage.show();
-  }
-
-  public static void main(String[] args)
-  {
-    launch(args);
   }
 }

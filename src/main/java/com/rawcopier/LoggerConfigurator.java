@@ -9,9 +9,19 @@ import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
+/**
+ * @author Leonzio20
+ */
 public final class LoggerConfigurator
 {
   private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+
+  public static Logger configure(String name)
+  {
+    Logger logger = Logger.getLogger(name);
+    configure(logger);
+    return logger;
+  }
 
   public static void configure(Logger logger)
   {
@@ -33,9 +43,8 @@ public final class LoggerConfigurator
         });
         logger.addHandler(handler);
       }
-    } catch (IOException e)
+    } catch (IOException ignored)
     {
-      e.printStackTrace();
     }
   }
 

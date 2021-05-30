@@ -9,6 +9,6 @@
   <Label fx:id="sourceFolderLabel" text="--Source folder--" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
   <Button text="Choose target folder" GridPane.columnIndex="0" GridPane.rowIndex="1" onAction="#chooseTarget"/>
   <Label fx:id="targetFolderLabel" text="--Target folder--" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-  <Button fx:id="copy" text="Copy" GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#copy" disable="true"/>
-  <ProgressBar fx:id="progressBar" progress="0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+  <Button text="Copy" GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#copy"/>
+  <ProgressBar fx:id="progressBar" progress="0" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
 </GridPane>
